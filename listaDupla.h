@@ -22,6 +22,9 @@ link removeNo (link x);
 void imprime(ListaDupla l);
 void imprimeReverso(ListaDupla l);
 void destroiLista(ListaDupla l);
+
 link buscaMenorItem(ListaDupla l);
+void sortList(ListaDupla* l);
+void swap(link x, link z);
 
 #endif
