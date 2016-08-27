@@ -2,9 +2,6 @@
 #include <stdlib.h>
 #include "listaDupla.h"
 
-
-
-
 link novoNo (int item, link prev, link next) {
   link aux = malloc(sizeof(struct node));
   if (aux == NULL) {
@@ -21,8 +18,8 @@ link novoNo (int item, link prev, link next) {
 ListaDupla inicializa() {
   ListaDupla aux;
   aux = malloc(sizeof *aux);
-  aux->head = NULL;
   aux->z = novoNo(0, NULL, NULL);
+  aux->head = aux->z;
   return aux;
 }
 
