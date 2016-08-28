@@ -24,7 +24,6 @@ void imprimeReverso(ListaDupla l);
 void destroiLista(ListaDupla l);
 
 link buscaMenorItem(ListaDupla l);
-void sortList(ListaDupla* l);
-void swap(link x, link z);
+ListaDupla sortList(ListaDupla l);
 
 #endif
