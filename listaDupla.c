@@ -20,6 +20,8 @@ ListaDupla inicializa() {
   aux = malloc(sizeof *aux);
   aux->z = novoNo(0, NULL, NULL);
   aux->head = aux->z;
+  aux->z->next = aux->head;
+  aux->z->prev = aux->head;
   return aux;
 }
 
@@ -88,3 +90,29 @@ void destroiLista(ListaDupla l) {
   free(l);
 }
 
+link buscaMenorItem(ListaDupla l){
+  link head = l->head;
+  link menor = head;
+  while(head != l->z){
+    if(menor->item > head->item){
+      menor = head;
+    }
+    head = head->next;
+  }
+  return head;
+}
+
+ListaDupla sortList(ListaDupla l){
+  link head = l->head;
+  ListaDupla nova = inicializa();
+  /*
+  procuro o menor item (buscaMenorItem(l)) da lista original,
+  removo (removeNo(link menor)) e insiro na nova lista na primeira posição (l->z->prev)
+  */
+  while(head != l->z){
+    insereDepois(nova, nova->z->prev, removeNo(buscaMenorItem(l)));
+    head = head->next;
+  }
+  destroiLista(l);
+  return nova;
+}
